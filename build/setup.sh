@@ -14,20 +14,18 @@ apt-get -y update
 
 # Install nginx and PHP
 DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
-apt install -y php$PHP_VERSION
+apt install -y php
 echo
 php --version
 echo
 apt-get -y install htop nano net-tools zip unzip openssh-server
 echo
 echo "deb http://security.ubuntu.com/ubuntu bionic-security main" | sudo tee -a /etc/apt/sources.list.d/bionic.list
+apt-get upgrade -y
 apt-get -y update
+apt-get install -y -f
 apt-cache policy libssl1.0-dev
 apt-get install -y libssl1.0-dev nginx libapache2-mod-php
-echo
-apt-get upgrade -y
-apt-get install -y -f
-apt-get update -y
 
 mkdir -p /var/www
 chown -R app:app /var/www
@@ -37,13 +35,13 @@ ln -sf /dev/stderr /var/log/nginx/error.log
 rm /etc/nginx/conf.d/*
 
 # Change max execution time to 180 seconds
-#sed -ri 's/(max_execution_time =) ([2-9]+)/\1 180/' /etc/php/$PHP_VERSION/fpm/php.ini
+sed -ri 's/(max_execution_time =) ([2-9]+)/\1 180/' /etc/php/$PHP_VERSION/fpm/php.ini
 
 # Max memory to allocate for each php-fpm process
-#sed -ri 's/(memory_limit =) ([0-9]+)/\1 1024/' /etc/php/$PHP_VERSION/fpm/php.ini
+sed -ri 's/(memory_limit =) ([0-9]+)/\1 1024/' /etc/php/$PHP_VERSION/fpm/php.ini
 
 # Set the timezone
-#sed -ri "s@^;date\.timezone\s+.*@date\.timezone=${TZ}@" /etc/php/$PHP_VERSION/fpm/php.ini
+sed -ri "s@^;date\.timezone\s+.*@date\.timezone=${TZ}@" /etc/php/$PHP_VERSION/fpm/php.ini
 
 # Install ioncube loader
 cd /tmp && curl -o ioncube.zip http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.zip && \
