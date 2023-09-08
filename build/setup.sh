@@ -14,7 +14,7 @@ apt-get -y update
 
 # Install nginx and PHP
 DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
-apt install -y php
+apt install -y php$PHP_VERSION
 echo
 php --version
 echo
