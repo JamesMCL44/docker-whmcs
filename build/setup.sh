@@ -22,10 +22,10 @@ php --version
 echo
 echo
 echo
-apt-get -y install nginx php$PHP_VERSION-fpm php$PHP_VERSION-mysql php$PHP_VERSION-common \
-	php$PHP_VERSION-bcmath php$PHP_VERSION-gd php$PHP_VERSION-xml php$PHP_VERSION-cli \
+apt-get -y install nginx php$PHP_VERSION-fpm php$PHP_VERSION-mysql \
+	php$PHP_VERSION-bcmath php$PHP_VERSION-gd php$PHP_VERSION-xml \
     php$PHP_VERSION-zip php$PHP_VERSION-mbstring php$PHP_VERSION-curl \
-    htop nano net-tools zip unzip openssh-server
+    htop nano net-tools zip unzip openssh-server libssl1.1
 
 mkdir -p /var/www
 chown -R app:app /var/www
