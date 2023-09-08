@@ -1,0 +1,34 @@
+name: Docker Push
+
+on:
+  push:
+    branches: [ "master" ]
+    tags: [ 'latest' ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Log to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_USERNAME_ACCESS_TOKEN }}
+
+      # Build and push Docker image with Buildx (don't push on PR)
+      # https://github.com/docker/build-push-action
+      - name: Build and push Docker image
+        id: build-and-push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: jamesmcl/whmcs:latest, jamesmcl/whmcs:${{ github.run_number }}
