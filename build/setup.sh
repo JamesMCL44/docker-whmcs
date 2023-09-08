@@ -2,12 +2,12 @@
 set -eo pipefail
 
 # Enable PHP
-#add-apt-repository -y ppa:ondrej/php
+add-apt-repository -y ppa:ondrej/php
 
 # Enable nginx repo
-#wget -q http://nginx.org/packages/keys/nginx_signing.key
-#cat nginx_signing.key | sudo apt-key add -
-#add-apt-repository 'deb http://nginx.org/packages/ubuntu/ xenial nginx'
+wget -q http://nginx.org/packages/keys/nginx_signing.key
+cat nginx_signing.key | sudo apt-key add -
+add-apt-repository 'deb http://nginx.org/packages/ubuntu/ xenial nginx'
 
 # Update installed packages
 apt-get -y update
