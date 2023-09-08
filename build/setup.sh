@@ -16,16 +16,9 @@ apt-get -y update
 DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
 apt install -y php
 echo
-echo
-echo
 php --version
 echo
-echo
-echo
-apt-get -y install nginx php$PHP_VERSION-fpm php$PHP_VERSION-mysql \
-	php$PHP_VERSION-bcmath php$PHP_VERSION-gd php$PHP_VERSION-xml \
-    php$PHP_VERSION-zip php$PHP_VERSION-mbstring php$PHP_VERSION-curl \
-    htop nano net-tools zip unzip openssh-server libssl1.1
+apt-get -y install htop nano net-tools zip unzip openssh-server
 echo
 apt-get -y update
 apt-get install -y -f
@@ -33,7 +26,7 @@ apt-get install -y -f
 echo "deb http://security.ubuntu.com/ubuntu bionic-security main" | sudo tee -a /etc/apt/sources.list.d/bionic.list
 sudo apt update
 apt-cache policy libssl1.0-dev
-sudo apt-get install libssl1.0-dev
+sudo apt-get install libssl1.0-dev nginx
 
 mkdir -p /var/www
 chown -R app:app /var/www
