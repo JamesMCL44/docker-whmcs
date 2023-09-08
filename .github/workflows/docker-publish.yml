@@ -1,10 +1,5 @@
 name: Docker Push
 
-on:
-  push:
-    branches: [ "master" ]
-    tags: [ 'latest' ]
-
 jobs:
   build:
     runs-on: ubuntu-latest
