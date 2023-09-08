@@ -2,7 +2,7 @@ FROM    ajoergensen/baseimage-ubuntu
 
 LABEL	maintainer="Rizal Fauzie Ridwan <rizal@fauzie.my.id>"
 
-ENV     PHP_VERSION=8.0 \
+ENV     PHP_VERSION=8.2 \
         VIRTUAL_HOST=$DOCKER_HOST \
         HOME=/var/www/whmcs \
         PUID=1000 \
