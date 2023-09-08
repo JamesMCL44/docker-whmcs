@@ -25,9 +25,9 @@ apt-get -y update
 apt-cache policy libssl1.0-dev
 apt-get install -y libssl1.0-dev nginx
 echo
-apt-get upgrade
-apt-get -y update
+apt-get upgrade -y
 apt-get install -y -f
+apt-get update -y
 
 mkdir -p /var/www
 chown -R app:app /var/www
