@@ -18,13 +18,7 @@ apt install -y php$PHP_VERSION
 echo
 php --version
 echo
-apt-get -y install curl wget tar nginx php$PHP_VERSION-fpm php$PHP_VERSION-mysql php$PHP_VERSION-common \
-	php-imagick php-igbinary php-redis php$PHP_VERSION-bcmath php$PHP_VERSION-opcache \
-	php$PHP_VERSION-enchant php$PHP_VERSION-gd php$PHP_VERSION-imap php$PHP_VERSION-intl \
-	php$PHP_VERSION-json php$PHP_VERSION-xml php$PHP_VERSION-xmlrpc php-pear \
-    php$PHP_VERSION-zip php$PHP_VERSION-bz2 php$PHP_VERSION-mbstring php$PHP_VERSION-curl \
-    htop nano net-tools zip unzip openssh-server
-
+apt-get -y install htop nano net-tools zip unzip openssh-server
 echo
 echo "deb http://security.ubuntu.com/ubuntu bionic-security main" | sudo tee -a /etc/apt/sources.list.d/bionic.list
 apt-get -y update
