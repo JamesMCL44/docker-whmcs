@@ -69,4 +69,5 @@ wget -qO - https://github.com/jwilder/dockerize/releases/download/v0.7.0/dockeri
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 # Cleanup
-/usr/local/sbin/cleanup.sh
+chmod +x /build/cleanup.sh
+/build/cleanup.sh
