@@ -34,6 +34,8 @@ ln -sf /dev/stdout /var/log/nginx/access.log
 ln -sf /dev/stderr /var/log/nginx/error.log
 rm /etc/nginx/conf.d/*
 
+find / -name *.ini
+
 # Change max execution time to 180 seconds
 sed -ri 's/(max_execution_time =) ([2-9]+)/\1 180/' /etc/php/$PHP_VERSION/fpm/php.ini
 
