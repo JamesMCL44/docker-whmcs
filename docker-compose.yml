@@ -1,19 +1,19 @@
-version: "2"
+version: "3"
 
 services:
   mysql:
-    image: mysql/mysql-server:5.7
-    container_name: "MYSQL"
+    image: mysql:latest
+    container_name: whmcsdb
+    restart: unless-stopped
     hostname: mysql
-    restart: always
     networks:
       whmcs:
         ipv4_address: 172.18.18.2
     environment:
-      MYSQL_ROOT_PASSWORD: "mysqrootpass"
+      MYSQL_ROOT_PASSWORD: "pw123123"
       MYSQL_ROOT_HOST: '%'
     ports:
-      - 3306:3306
+      - 3332:3306
 
   whmcs:
     image: fauzie/docker-whmcs:latest
@@ -32,10 +32,27 @@ services:
       WHMCS_SERVER_IP: 172.18.18.1
       HTTPS: "on"
     ports:
-      - 80:80
-      - 2222:2222
+      - 8883:80
+      - 8822:22
     volumes:
-      - /your/path/to/whmcs:/var/www/whmcs
+      - /home/www/whmcs:/var/www/whmcs
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: pmawhmcs
+    hostname: pma
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 0
+    restart: unless-stopped
+    networks:
+      whmcs:
+        ipv4_address: 172.18.18.4
+    ports:
+      - 8884:80
 
 networks:
   whmcs:

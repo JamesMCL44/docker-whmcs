@@ -8,12 +8,12 @@ Ready to use docker image for WHMCS environment.
 Features
 --------
 
-* Using latest php version 7.2
+* Using latest php version 8.2
 * Ioncube loader ready
 * Nginx server configuration for WHMCS
 * Installed default cron for WHMCS (all task include ticket import)
 * Custom mapping volume for WHMCS installation at `/var/www/whmcs`
-* SSH login with password or public key on port `2222`
+* SSH login with password or public key on port `22`
 * Host SSL Enabled (please map your letsencrypt or other valid certificate)
 
 Installation
@@ -51,7 +51,7 @@ Ports
 -----
 
 - `443`: Nginx virtualhost SSL enabled
-- `2222` : For remote SSH login
+- `22` : For remote SSH login
 
 Email
 -----
