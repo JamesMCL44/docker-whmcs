@@ -23,7 +23,7 @@ echo
 echo "deb http://security.ubuntu.com/ubuntu bionic-security main" | sudo tee -a /etc/apt/sources.list.d/bionic.list
 apt-get -y update
 apt-cache policy libssl1.0-dev
-apt-get install -y libssl1.0-dev nginx
+apt-get install -y libssl1.0-dev nginx libapache2-mod-php
 echo
 apt-get upgrade -y
 apt-get install -y -f
