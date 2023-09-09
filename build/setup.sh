@@ -22,9 +22,8 @@ apt-get -y install htop nano net-tools zip unzip openssh-server
 echo
 echo "deb http://security.ubuntu.com/ubuntu bionic-security main" | sudo tee -a /etc/apt/sources.list.d/bionic.list
 apt-get -y update
-apt-get install -y -f
 apt-cache policy libssl1.0-dev
-apt-get install -y libssl1.0-dev nginx libapache2-mod-php
+apt-get install -y libssl1.0-dev nginx libapache2-mod-php php${PHP_VERSION}-fpm
 
 mkdir -p /var/www
 chown -R app:app /var/www
