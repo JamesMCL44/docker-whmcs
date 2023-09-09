@@ -30,7 +30,6 @@ apt-get -y install curl wget tar nginx php$PHP_VERSION-fpm php$PHP_VERSION-mysql
     htop nano net-tools zip unzip openssh-server
 
 mkdir -p /var/www
-adduser --disabled-password --gecos "" app
 chown -R app:app /var/www
 mkdir -p /var/www/.ssh
 ln -sf /dev/stdout /var/log/nginx/access.log
